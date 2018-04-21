@@ -1,0 +1,26 @@
+$red:orange;
+$bg:#ccc;
+$full:100%;
+.pp1{
+  color:$red;
+  transition: width 2s;
+  transform:rotate(180deg);
+  background:$bg;
+}
+.bgUrl{
+  width:100%;
+  height:30px;
+  background:url(../../img/a.jpg);
+}
+.swiper-container {
+  width: 600px;
+  height: 300px;
+} 
+
+.swiper-slide{
+  width:600px;
+  height:300px;
+  img{
+    width:$full;
+  }
+} 
