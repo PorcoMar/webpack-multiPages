@@ -1,7 +1,7 @@
 const common = require('./common.js');
 import '../css/common.css';
 import '../css/index/index.scss';
-// const $ = require('jquery');
+const $ = require('jquery');
 import '../lib/swiper.min.css';
 import Swiper from '../lib/swiper-4.2.2.min.js';
 // import Swiper from  'swiper' //是可以用 但是打包的时候会报错 原因是webpack.config.base.js里exclude: /node_modules/,改为exclude:/^node_modules*swiper&/意为：不处理除了swiper以外的所有文件
@@ -22,15 +22,16 @@ let timer = setInterval(()=>{
 },1000);
 
 $(document).ready(function(){
-  let mySwiper = new Swiper ('.swiper-container', {
+  // let mySwiper = new Swiper ('.swiper-container', {
+  new Swiper ('.swiper-container', {
     initialSlide :2,
     effect:'cube',
     loop: true,
     autoplay : 2000,
     pagination: '.swiper-pagination',
     paginationType : 'progress',
-    autoplayDisableOnInteraction : false, //手动滑动后继续自动播放
-    paginationClickable: true,//点击导航切换 
+    autoplayDisableOnInteraction:false,//手动滑动后继续自动播放
+    paginationClickable:true,//点击导航切换
     prevButton:'.swiper-button-prev',
     nextButton:'.swiper-button-next',
   });	

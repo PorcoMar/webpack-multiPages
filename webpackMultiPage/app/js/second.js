@@ -1,5 +1,5 @@
 console.log('second.js');
-// import $ from 'jquery';
+import $ from 'jquery'; 
 const utils = require('./common');
 
 utils.requestData(utils.brandDetailHost(),'/h5_api/queryByStaffId',{id:utils.getQueryString('customerServiceId')},'post').then((res) => {

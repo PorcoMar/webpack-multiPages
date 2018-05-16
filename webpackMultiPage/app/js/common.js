@@ -1,9 +1,10 @@
 /*
 * @Author: Porco_Mar
 * @Date:   2018-01-15 10:36:56
- * @Last Modified by: PorcoMar
- * @Last Modified time: 2018-04-21 15:52:29
+ * @Last Modified by:   Porco_Mar
+ * @Last Modified time: 2018-04-23 09:19:28
 */
+const $ = require('jquery');
 console.log('comon.js');
 const brandDetailHost = () => {
   var hostUrl = window.location.host;
@@ -35,7 +36,7 @@ const getQueryString = (name) => {
  * @return {[type]}        [description]
  */
 const requestData = (host,path,parmas,type) => {
-  return new Promise ((resolve, reject) => {
+  return new Promise ((resolve) => {
     $.ajax({
       type : type,
       url : host + path,

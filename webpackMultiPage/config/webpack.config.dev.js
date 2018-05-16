@@ -9,7 +9,7 @@ module.exports = webpackMerge(webpackBase,{
     // 配置 webpack-dev-server
     devServer:{
         // 项目根目录
-        contentBase:config.devServerOutputPath,
+        contentBase:config.devServerOutputPath,//devServer 配置项的 contentBase 项是项目的根目录，也就是我们的 dist 目录，区别在于这个 dist 目录不是硬盘上的 dist 目录，而是存在于内存中的 dist 目录。在使用 webpack-dev-server 时，将会以这个内存中的 dist 目录作为根目录。
         // 错误、警告展示设置
         overlay:{
             errors:true,

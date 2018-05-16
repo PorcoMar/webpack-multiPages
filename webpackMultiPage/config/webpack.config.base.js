@@ -28,11 +28,12 @@ const ProvidePlugin = new webpack.ProvidePlugin({//引入外部类库 这样就�
 // 生成多页面的集合
 config.HTMLDirs.forEach((page) => {
     const htmlPlugin = new HTMLWebpackPlugin({
-        filename: `${page}.html`,
-        template: path.resolve(__dirname, `../app/html/${page}.html`),
-        chunks: [page, 'commons'],
+        filename: `${page}.html`, //生成的 HTML 文件名，我这里选择和原始文件名保持一致
+        template: path.resolve(__dirname, `../app/html/${page}.html`), //生成 HTML 文件使用的模板，也就是我们之前在 html 文件夹中建立的那些文件
+        chunks: [page, 'commons'], //使用chunks生成 HTML 文件时会自动插入相应的代码片段 我这里选择插入每个页面对应的 JavaScript 文件，以及最后提取出来的公共文件代码块。
+        //关于 chunks 还需要说明一点，chunks 是一个数组，在生成 HTML 文件时会将数组中的对应的 JavaScript 片段自动插入到 HTML 中，这些片段也就是 webpack 打包时的 output 选项中的 [name]。这里只需要写上 [name] 值就行了，无需使用打包生成的完整名称，因为这会还没开始打包呢，打包后生成的名称咱也不知道。
     });
-    HTMLPlugins.push(htmlPlugin);
+    HTMLPlugins.push(htmlPlugin);   
     Entries[page] = path.resolve(__dirname, `../app/js/${page}.js`);
 })
 
@@ -55,7 +56,7 @@ module.exports = {
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
                     // 设置 css 的 publicPath
-                    publicPath: config.cssPublicPath,
+                    publicPath: config.cssPublicPath,//在 css 中设置背景图像的 url 时，经常会找不到图片（默认会在 css 文件所在的文件夹中寻找），这里设置 extract-text-webpack-plugin 插件的 publicPath 为图片文件夹所在的目录，就可以顺利找到图片了
                     use: [{
                             loader:"css-loader",
                             options:{

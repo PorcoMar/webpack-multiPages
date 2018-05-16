@@ -1,3 +1,4 @@
+//该配置文件用来在生产环境启用，主要用来压缩、合并和抽取 JavaScript 代码，并将项目文件打包至硬盘上的 dist 文件夹中。
 // 引入基础配置
 const webpackBase = require("./webpack.config.base");
 // 引入 webpack-merge 插件
